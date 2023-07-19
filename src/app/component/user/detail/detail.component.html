@@ -1,0 +1,175 @@
+<div class="details-layout">
+  <div class="card rounded-2">
+    <div class="card-body rounded-2">
+      <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+        <div class="row card-header">
+          <h4 class="col-2">User Details</h4>
+          <div class="col-1">
+            <ng-container *ngIf="!isEditMode">
+              <a href="javascript:void(0)" (click)="setViewByViewMode(); isEditMode = true">
+                View
+              </a>
+            </ng-container>
+            <ng-container *ngIf="isEditMode">
+              <a href="javascript:void(0)" (click)="setViewByEditMode(); isEditMode = false">
+                Edit
+              </a>
+            </ng-container>
+          </div>
+        </div>
+
+        <div class="p-4">
+          <div class="form-group">
+            User ID: <label *ngIf="user">{{user.id}}</label>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-2">First Name:</div>
+            <div class="form-group col-4">
+              <label for="first-name" *ngIf="viewMode&&user">{{user.firstName}}</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="first-name" name="first-name" *ngIf="!viewMode&&user"
+                       [(ngModel)]="user.firstName" formControlName="firstName">
+                <small
+                  *ngIf="updateForm.get('firstName')?.hasError('pattern') && updateForm.get('firstName')?.touched"
+                  class="red">
+                  Please enter a valid First Name (only alphabets)
+                </small>
+              </div>
+            </div>
+            <br>
+
+            <div class="col-2">Middle Name:</div>
+            <div class="form-group col-4">
+              <label for="middle-name" *ngIf="viewMode&&user">{{user.middleName}}</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="middle-name" name="middle-name" *ngIf="!viewMode&&user"
+                       [(ngModel)]="user.middleName" formControlName="middleName">
+                <small
+                  *ngIf="updateForm.get('middleName')?.hasError('pattern') && updateForm.get('middleName')?.touched"
+                  class="red">
+                  Please enter a valid Middle Name (only alphabets)
+                </small>
+              </div>
+            </div>
+            <br><br>
+
+            <div class="col-2">Last Name:</div>
+            <div class="form-group col-4">
+              <label for="last-name" *ngIf="viewMode&&user">{{user.lastName}}</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="last-name" name="last-name" *ngIf="!viewMode&&user"
+                       [(ngModel)]="user.lastName" formControlName="lastName">
+                <small
+                  *ngIf="updateForm.get('lastName')?.hasError('pattern') && updateForm.get('lastName')?.touched"
+                  class="red">
+                  Please enter a valid last Name (only alphabets)
+                </small>
+              </div>
+            </div>
+            <br>
+
+            <div class="col-2">Address:</div>
+            <div class="form-group col-4">
+              <label for="address" *ngIf="viewMode&&user">{{user.address}}</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="address" name="address" *ngIf="!viewMode&&user"
+                       [(ngModel)]="user.address" formControlName="address">
+              </div>
+            </div>
+            <br><br>
+
+            <div class="col-2">City:</div>
+            <div class="form-group col-4">
+              <label for="city" *ngIf="viewMode&&user">{{user.city}}</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="city" name="city" *ngIf="!viewMode&&user"
+                       [(ngModel)]="user.city" formControlName="city">
+              </div>
+            </div>
+            <br>
+
+
+            <div class="col-2">State:</div>
+            <div class="form-group col-4">
+              <label for="state" *ngIf="viewMode&&user">{{user.state}}</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="state" name="state" *ngIf="!viewMode&&user"
+                       [(ngModel)]="user.state" formControlName="state">
+              </div>
+            </div>
+            <br><br>
+
+            <div class="col-2">Country:</div>
+            <div class="form-group col-4">
+              <label for="country" *ngIf="viewMode&&user">{{user.country}}</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="country" name="country" *ngIf="!viewMode&&user"
+                       [(ngModel)]="user.country" formControlName="country">
+              </div>
+            </div>
+            <br>
+
+            <div class="col-2">Zip Code:</div>
+            <div class="form-group col-4">
+              <label for="zipcode" *ngIf="viewMode&&user">{{user.zipcode}}</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="zipcode" name="zipcode" *ngIf="!viewMode&&user"
+                       [(ngModel)]="user.zipcode" formControlName="zipcode">
+                <small *ngIf="updateForm.get('zipcode')?.hasError('pattern') && updateForm.get('zipcode')?.touched"
+                       class="red">
+                  Zipcode should contain only digits
+                </small>
+                <small *ngIf="updateForm.get('zipcode')?.hasError('minlength') && updateForm.get('zipcode')?.touched"
+                       class="red">
+                  Zipcode should be at least 6 digits long
+                </small>
+                <small *ngIf="updateForm.get('zipcode')?.hasError('maxlength') && updateForm.get('zipcode')?.touched"
+                       class="red">
+                  Zipcode should not exceed 6 digits
+                </small>
+              </div>
+            </div>
+            <br><br>
+
+            <div class="col-2">Email:</div>
+            <div class="form-group col-4">
+              <label for="email" *ngIf="viewMode&&user">{{user.email}}</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="email" name="email" *ngIf="!viewMode&&user"
+                       [(ngModel)]="user.email" formControlName="email">
+                <small *ngIf="updateForm.get('email')?.hasError('email') && updateForm.get('email')?.touched"
+                       class="red">
+                  Please enter a valid email address
+                </small>
+              </div>
+            </div>
+            <br>
+
+            <div class="col-2">Username:</div>
+            <div class="form-group col-4">
+              <label for="username" *ngIf="viewMode&&user">{{user.username}}</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="username" name="username" *ngIf="!viewMode&&user"
+                       [(ngModel)]="user.username" formControlName="username">
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary col-1 m-3" [disabled]="updateForm.invalid"
+                    *ngIf="!viewMode&&user">
+              Save
+            </button>
+            <button type="button" class="btn btn-secondary col-1 m-4" *ngIf="!viewMode"
+                    (click)="setViewByViewMode(); isEditMode = true">
+              Cancel
+            </button>
+            <button class="btn btn-danger col-2" (click)="homePage()">BackToHome</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

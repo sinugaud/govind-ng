@@ -1,0 +1,37 @@
+<div class="container"><br>
+  <div class="card rounded-2">
+    <div class="card-header">
+      <div class="row">
+        <h4 class="col-11">Employee Leave</h4>
+        <button type="button" *ngIf="!roleBoolean" class="btn btn-primary col" (click)="onAdd()">Add</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped table-responsive">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">User</th>
+          <th scope="col">StartDateTime</th>
+          <th scope="col">EndDateTime</th>
+          <th scope="col">Subject</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let leave of leaves">
+          <td>{{leave.user.firstName}} {{leave.user.lastName}}</td>
+          <td>{{ convertDate(leave.startDateTime) }}</td>
+          <td>{{ convertDate(leave.endDateTime) }}</td>
+          <td>{{leave.subject}}</td>
+          <td>{{leave.status}}</td>
+          <td>
+            <button type="button" class="btn btn-primary m-1" (click)="goToEdit(leave.id)">Edit</button>
+            <button type="button" class="btn btn-danger m-1" (click)="deleteUser(leave.id)">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div>

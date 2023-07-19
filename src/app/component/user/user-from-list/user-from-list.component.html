@@ -1,0 +1,77 @@
+<div class="details-layout p-2 ms-3 mx-3">
+  <div class="card rounded-2">
+    <div class="card-body rounded-2">
+      <form>
+        <div class="row card-header">
+          <h4>User Info</h4>
+        </div>
+        <div class="p-4">
+          <div class="form-group">
+            User ID: <label>{{user.id}}</label>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-2">First Name:</div>
+            <div class="form-group col-4">
+              <label>{{user.firstName}}</label>
+            </div>
+            <br>
+            <div class="col-2">Middle Name:</div>
+            <div class="form-group col-4">
+              <label>{{user.middleName}}</label>
+            </div>
+            <br><br>
+            <div class="col-2">Last Name:</div>
+            <div class="form-group col-4">
+              <label>{{user.lastName}}</label>
+            </div>
+            <br>
+            <div class="col-2">Address:</div>
+            <div class="form-group col-4">
+              <label>{{user.address}}</label>
+            </div>
+            <br><br>
+            <div class="col-2">City:</div>
+            <div class="form-group col-4">
+              <label>{{user.city}}</label>
+            </div>
+            <br>
+            <div class="col-2">State:</div>
+            <div class="form-group col-4">
+              <label>{{user.state}}</label>
+            </div>
+            <br><br>
+            <div class="col-2">Country:</div>
+            <div class="form-group col-4">
+              <label>{{user.country}}</label>
+            </div>
+            <br>
+            <div class="col-2">Zip Code:</div>
+            <div class="form-group col-4">
+              <label>{{user.zipcode}}</label>
+            </div>
+            <br><br>
+            <div class="col-2">Email:</div>
+            <div class="form-group col-4">
+              <label>{{user.email}}</label>
+            </div>
+            <br>
+            <div class="col-2">Username:</div>
+            <div class="form-group col-4">
+              <label>{{user.username}}</label>
+            </div><br><br>
+            <div class="col-2">Joining Date:</div>
+            <div class="form-group col-4">
+              <label>{{convertDate(user.joiningDate)}}</label>
+            </div><br>
+            <div class="col-2">Number Of Leaves:</div>
+            <div class="form-group col-4">
+              <label>{{user.noOfLeaves}}</label>
+            </div>
+          </div>
+          <br><br>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

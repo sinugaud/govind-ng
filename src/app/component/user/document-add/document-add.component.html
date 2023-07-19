@@ -1,0 +1,49 @@
+<div class="container mt-5">
+  <div class="details-layout">
+    <div class="card rounded-2">
+      <div class="card-body rounded-2">
+
+        <h4 class="card-header">Document Add</h4>
+        <form [formGroup]="documentForm" (ngSubmit)="onSubmit()">
+          <div class="form-group p-2">
+            <label for="role">Role*</label>
+            <select class="form-select" id="role" aria-label="Default select example" formControlName="role">
+              <option value="1">ADMIN</option>
+              <option value="2">EMPLOYEE</option>
+            </select>
+            <small
+              *ngIf="documentForm.controls['role'].invalid && documentForm.controls['role'].touched"
+              class="red">
+              Role is required
+            </small>
+          </div>
+          <div class="form-group p-2">
+            <label for="document-name">Document Name*</label>
+            <input type="text" class="form-control" id="document-name" name="document-name"
+                   formControlName="name">
+            <small
+              *ngIf="documentForm.controls['name'].invalid && documentForm.controls['name'].touched"
+              class="red">
+              Document name is required
+            </small>
+          </div>
+          <div class="form-group p-2">
+            <label for="file">File*</label>
+            <input type="file" class="form-control" id="file" name="file" (change)="onFileSelected($event)"
+                   formControlName="file">
+            <small
+              *ngIf="documentForm.controls['file'].invalid && documentForm.controls['file'].touched"
+              class="red">
+              File is required
+            </small>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary col-2 m-3" [disabled]="documentForm.invalid">Submit
+            </button>
+            <button type="button" class="btn btn-secondary col-2 m-3" (click)="backToDocument()">Back</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

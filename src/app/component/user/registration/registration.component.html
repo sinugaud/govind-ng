@@ -1,0 +1,248 @@
+<div class="container p-1">
+  <div class="card">
+    <div class="card-header">
+      <h4>Add User</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="form-group p-1 col-2">
+            <label for="firstName">First Name<span class="red">*</span>:</label>
+          </div>
+          <div class="col-4">
+            <input type="text" class="form-control" id="firstName" name="firstName"
+                   formControlName="firstName">
+            <small
+              *ngIf="registrationForm.get('firstName')?.hasError('required') && registrationForm.get('firstName')?.touched"
+              class="red">
+              First Name is required
+            </small>
+            <small
+              *ngIf="registrationForm.get('firstName')?.hasError('pattern') && registrationForm.get('firstName')?.touched"
+              class="red">
+              Please enter a valid First Name (only alphabets)
+            </small>
+          </div>
+          <div class="form-group p-1 col-2">
+            <label for="middlename">Middle Name:</label>
+          </div>
+          <div class="col-4">
+            <input type="text" class="form-control" id="middleName" name="middleName"
+                   formControlName="middleName">
+            <small
+              *ngIf="registrationForm.get('middleName')?.hasError('pattern') && registrationForm.get('middleName')?.touched"
+              class="red">
+              Please enter a valid Middle Name (only alphabets)
+            </small>
+          </div><br><br>
+          <div class="form-group p-1 col-2">
+            <label for="lastName">Last Name<span class="red">*</span>:</label>
+          </div>
+          <div class="col-4">
+            <input type="text" class="form-control" id="lastName" name="lastName"
+                   formControlName="lastName">
+            <small
+              *ngIf="registrationForm.get('lastName')?.hasError('required') && registrationForm.get('lastName')?.touched"
+              class="red">
+              Last Name is required
+            </small>
+            <small
+              *ngIf="registrationForm.get('lastName')?.hasError('pattern') && registrationForm.get('lastName')?.touched"
+              class="red">
+              Please enter a valid last Name (only alphabets)
+            </small>
+          </div>
+          <div class="form-group p-1 col-2">
+            <label for="dateofbirth">Date of Birth<span class="red">*</span>:</label>
+          </div>
+          <div class="col-4">
+            <input type="date" class="form-control" id="dateofbirth" name="dateofbirth"
+                   formControlName="dateOfBirth">
+            <small
+              *ngIf="registrationForm.get('dateOfBirth')?.hasError('required') && registrationForm.get('dateOfBirth')?.touched"
+              class="red">
+              Dateofbirth is required
+            </small>
+            <small
+              *ngIf="registrationForm.get('dateOfBirth')?.hasError('invalidDate') && registrationForm.get('dateOfBirth')?.touched"
+              class="red">
+              Invalid date of birth.
+            </small>
+            <small
+              *ngIf="registrationForm.get('dateOfBirth')?.hasError('futureDate') && registrationForm.get('dateOfBirth')?.touched"
+              class="red">
+              Date of birth cannot be in the future.
+            </small>
+          </div><br><br>
+          <div class="form-group p-1 col-2">
+            <label for="joiningDate">Joining Date<span class="red">*</span>:</label>
+          </div>
+          <div class="col-4">
+            <input type="date" class="form-control" id="joiningDate" name="joiningDate"
+                   formControlName="joiningDate">
+            <small
+              *ngIf="registrationForm.get('joiningDate')?.hasError('required') && registrationForm.get('joiningDate')?.touched"
+              class="red">
+              Joining date is required
+            </small>
+          </div>
+          <div class="form-group p-1 col-2">
+            <label for="address">Address<span class="red">*</span>:</label>
+          </div>
+          <div class="col-4">
+            <input type="text" class="form-control" id="address" name="address"
+                   formControlName="address">
+            <small
+              *ngIf="registrationForm.get('address')?.hasError('required') && registrationForm.get('address')?.touched"
+              class="red">
+              Address is required
+            </small>
+          </div><br><br>
+          <div class="form-group p-1 col-2">
+            <label for="city">City<span class="red">*</span>:</label>
+          </div>
+          <div class="col-4">
+            <input type="text" class="form-control" id="city" name="city" formControlName="city">
+            <small
+              *ngIf="registrationForm.get('city')?.hasError('required') && registrationForm.get('city')?.touched"
+              class="red">
+              City is required
+            </small>
+          </div>
+          <div class="form-group p-1 col-2">
+            <label for="state">State<span class="red">*</span>:</label>
+          </div>
+          <div class="col-4">
+            <input type="text" class="form-control" id="state" name="state" formControlName="state">
+            <small
+              *ngIf="registrationForm.get('state')?.hasError('required') && registrationForm.get('state')?.touched"
+              class="red">
+              State is required
+            </small>
+          </div><br><br>
+          <div class="form-group p-1 col-2">
+            <label for="country">Country<span class="red">*</span>:</label>
+          </div>
+          <div class="col-4">
+            <input type="text" class="form-control" id="country" name="country"
+                   formControlName="country">
+            <small
+              *ngIf="registrationForm.get('country')?.hasError('required') && registrationForm.get('country')?.touched"
+              class="red">
+              Country is required
+            </small>
+          </div>
+          <div class="form-group p-1 col-2">
+            <label for="zipcode">Zip Code<span class="red">*</span>:</label>
+          </div>
+          <div class="col-4">
+            <input type="text" class="form-control" id="zipcode" name="zipcode" formControlName="zipcode">
+            <small
+              *ngIf="registrationForm.get('zipcode')?.hasError('required') && registrationForm.get('zipcode')?.touched"
+              class="red">
+              Zipcode is required
+            </small>
+            <small
+              *ngIf="registrationForm.get('zipcode')?.hasError('pattern') && registrationForm.get('zipcode')?.touched"
+              class="red">
+              Zipcode should contain only digits
+            </small>
+            <small
+              *ngIf="registrationForm.get('zipcode')?.hasError('minlength') && registrationForm.get('zipcode')?.touched"
+              class="red">
+              Zipcode should be at least 6 digits long
+            </small>
+            <small
+              *ngIf="registrationForm.get('zipcode')?.hasError('maxlength') && registrationForm.get('zipcode')?.touched"
+              class="red">
+              Zipcode should not exceed 6 digits
+            </small>
+          </div><br><br>
+          <div class="form-group p-1 col-2">
+            <label for="no-of-leaves">Number of leaves<span class="red">*</span>:</label>
+          </div>
+          <div class="col-4">
+            <input type="text" class="form-control" id="no-of-leaves" name="no-of-leaves" formControlName="noOfLeaves">
+            <small
+              *ngIf="registrationForm.get('noOfLeaves')?.hasError('required') && registrationForm.get('noOfLeaves')?.touched"
+              class="red">
+              Number of leaves is required
+            </small>
+            <small
+              *ngIf="registrationForm.get('noOfLeaves')?.hasError('pattern') && registrationForm.get('noOfLeaves')?.touched"
+              class="red">
+              Number of leaves should contain only digits
+            </small>
+          </div>
+          <div class="form-group p-1 col-2">
+            <label for="email">Email<span class="red">*</span>:</label>
+          </div>
+          <div class="col-4">
+            <input type="email" class="form-control" id="email" name="email"
+                   formControlName="email">
+            <small
+              *ngIf="registrationForm.get('email')?.hasError('required') && registrationForm.get('email')?.touched"
+              class="red">
+              Email is required
+            </small>
+            <small *ngIf="registrationForm.get('email')?.hasError('email') && registrationForm.get('email')?.touched"
+                   class="red">
+              Please enter a valid email address
+            </small>
+          </div><br><br>
+          <div class="form-group p-1 col-2">
+            <label for="username">Username<span class="red">*</span>:</label>
+          </div>
+          <div class="col-4">
+            <input type="text" class="form-control" id="username" name="username"
+                   formControlName="username">
+            <small
+              *ngIf="registrationForm.controls['username'].invalid && registrationForm.controls['username'].touched"
+              class="red">
+              Username is required
+            </small>
+          </div>
+          <div class="form-group p-1 col-2">
+            <label for="password">Password<span class="red">*</span>:</label>
+          </div>
+          <div class="col-4">
+            <input type="password" class="form-control" id="password" name="password"
+                   formControlName="password">
+            <small
+              *ngIf="registrationForm.controls['password'].invalid && registrationForm.controls['password'].touched"
+              class="red">
+              Password is required
+            </small>
+            <small class="red"
+                   *ngIf="registrationForm.controls['password'].errors && registrationForm.controls['password'].errors['minlength']">
+              Please enter minimum length 8
+            </small>
+          </div><br><br>
+          <div class="form-group p-1 col-2">
+            <label for="confirmPassword">Confirm Password<span class="red">*</span>:</label>
+          </div>
+          <div class="col-4">
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                   formControlName="confirmPassword">
+            <div
+              *ngIf="registrationForm.controls['confirmPassword']?.touched && registrationForm.controls['confirmPassword']?.invalid"
+              class="red">
+              <small *ngIf="registrationForm.controls['confirmPassword']?.errors?.['required']">
+                Password is required.</small>
+              <small
+                *ngIf="registrationForm.controls['confirmPassword']?.errors?.['confirmedValidator']">
+                Password and
+                Confirm Password must match.</small>
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary m-3"
+                    [disabled]="registrationForm.invalid">Submit
+            </button>
+            <button type="button" class="btn btn-danger m-3" (click)="goToListPage()">Back</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

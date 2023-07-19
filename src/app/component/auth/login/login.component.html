@@ -1,0 +1,43 @@
+<div class="container con">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 mt-5">
+      <div class="card">
+        <div class="card-header">
+          <h4>Login Form</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group p-1">
+              <label for="username">Username<span class="red">*</span></label>
+              <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                     formControlName="username">
+              <small
+                *ngIf="loginForm.controls['username'].invalid && loginForm.controls['username'].touched"
+                class="red">
+                Username is required
+              </small>
+            </div>
+            <div class="form-group p-1">
+              <label for="password">Password<span class="red">*</span></label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="admin@123"
+                     formControlName="password">
+              <small
+                *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched"
+                class="red">
+                Password is required
+              </small>
+            </div>
+            <a href="/forgetpassword">Forget password</a>
+            <div *ngIf="successMessage"
+                 [ngStyle]="{'color': successMessageCondition ? 'green' : 'red'}">{{successMessage}}</div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary m-3" [disabled]="loginForm.invalid">Login</button>
+              <button type="button" class="btn btn-secondary m-2" (click)="clearFields()">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

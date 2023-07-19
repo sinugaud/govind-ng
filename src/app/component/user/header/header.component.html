@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-sm bg-secondary p-0 height">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-nav col mt-1">
+      <a class="navbar-brand col-2 mt-2 ms-5" href="/user">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvMKrZ7roXB132YAHy-rgo5WygTERtaQYZZg&usqp=CAU"
+             width="30" height="30" class="d-inline-block align-top rounded-circle" alt="">
+      </a>
+      <div class="nav-item col-1 mt-3">
+        <h6><a *ngIf="roleBoolean" class="nav-link margin margin-left" href="/user/list">UsersList</a></h6>
+      </div>
+
+
+      <div class="nav-item col-1 mt-3">
+        <h6><a *ngIf="roleBoolean" class="nav-link margin" href="/user/leave">Leaves</a></h6>
+      </div>
+
+      <div class="nav-item col-6 mt-3">
+        <h6><a *ngIf="roleBoolean" class="nav-link margin" href="/user/document">Documents</a></h6>
+      </div>
+
+      <div class="nav-item dropdown col-1 mt-1">
+        <h6 class=" pull-right">
+          <a class="nav-link" href="javascript:void(0)" id="navbarDropdown" role="button"
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+             (click)="showNavbarMenu()">
+            <img
+              src="data:image/jpeg;base64,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"
+              width="30" height="30" class="d-inline-block align-top rounded-circle" alt="">
+          </a></h6>
+        <div class="dropdown-menu mt-lg-5" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/user/changePassword">Change Password</a>
+          <a class="dropdown-item" href="/user/detail">User details</a>
+          <a class="dropdown-item" *ngIf="!roleBoolean" href="/user/leave">Leave</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="javascript:void(0)" (click)="logout()">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,29 @@
+.bg-secondary {
+  --bs-bg-opacity: 0.4 !important;
+}
+
+h6.pull-right {
+  float: right;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .dropdown-menu {
+    margin-top: 35px;
+    right: 0;
+  }
+}
+
+.height{
+  height: 40px;
+}
+
+.margin{
+  margin-top: -4px;
+}
+
+.margin-left{
+    margin-left: -21px;
+}
+
+
+

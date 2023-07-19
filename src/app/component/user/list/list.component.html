@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row m-1">
+    <h2 class="col-9">Users List</h2>
+    <button type="button" class="btn btn-primary col m-1" (click)="addUser()">Add User</button>
+  </div>
+  <table class="table table-striped table-responsive">
+    <thead>
+    <tr>
+      <th>Id:</th>
+      <th>First Name:</th>
+      <th>Middle Name:</th>
+      <th>Last Name:</th>
+      <th>Username:</th>
+      <th>Email:</th>
+      <th>Action:</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.middleName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>
+        <button type="button" class="btn btn-primary m-1" (click)="viewUser(user.id)">View</button>
+        <!--<button type="button" class="btn btn-danger m-1" *ngIf="viewUserCondition" (click)="deleteUser(user.id)">Delete</button>
+      --></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

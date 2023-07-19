@@ -1,0 +1,96 @@
+<div class="container"><br>
+  <div class="card rounded-2">
+    <h4 class="card-header" *ngIf="!editCondition">Employee leave add</h4>
+    <h4 class="card-header" *ngIf="editCondition">Employee leave update</h4>
+    <div class="card-body">
+      <form [formGroup]="leaveForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-2" *ngIf="employeeLeave.user.firstName">
+            USER:
+          </div>
+          <div class="col-10" *ngIf="employeeLeave.user.firstName">
+            <label>{{employeeLeave.user.firstName}} {{employeeLeave.user.lastName}}</label>
+          </div>
+          <br><br>
+          <div class="col-2">
+            Subject:
+          </div>
+          <div class="col-10">
+            <input type="text" class="form-control" id="subject" [(ngModel)]="employeeLeave.subject"
+                   placeholder="Enter subject" formControlName="subject">
+          </div>
+          <br><br>
+          <div class="col-2">
+            Reason:
+          </div>
+          <div class="col-10">
+            <textarea class="form-control" id="reason" [(ngModel)]="employeeLeave.reason" placeholder="Enter reason"
+                      formControlName="reason"></textarea>
+          </div>
+          <br><br><br>
+          <div class="col-2">
+            Start Date and Time:
+          </div>
+          <div class="col-4">
+            <input type="date" class="form-control" id="startDateTime" [(ngModel)]="employeeLeave.startDateTime"
+                   (change)="startDateTime()" formControlName="startDateTime" min="{{ today | date: 'yyyy-MM-dd' }}">
+          </div>
+          <div class="col-2">
+            <label for="start-shift">Start Shift:</label>
+          </div>
+          <div class="col-4">
+            <select class="form-control" id="start-shift" [(ngModel)]="employeeLeave.startShift" (click)="startShift()"
+                    formControlName="startShift">
+              <option value="Full day">Full day</option>
+              <option value="First half">First half</option>
+              <option value="Second half">Second half</option>
+            </select></div><br><br>
+          <div class="col-2">
+            <label for="endDateTime" *ngIf="!hideEndDateAndShiftCondition">End Date and Time:</label>
+          </div>
+          <div class="col-4">
+            <input type="date" class="form-control" id="endDateTime" *ngIf="!hideEndDateAndShiftCondition"
+                   [(ngModel)]="employeeLeave.endDateTime" (change)="endDateTime()" formControlName="endDateTime"
+                   min="{{ start | date: 'yyyy-MM-dd'}}">
+          </div>
+          <div class="col-2">
+            <label for="end-shift" *ngIf="!hideEndDateAndShiftCondition">End Shift:</label>
+          </div>
+          <div class="col-4">
+            <select class="form-control" id="end-shift" *ngIf="!hideEndDateAndShiftCondition"
+                    [(ngModel)]="employeeLeave.endShift" (click)="endShift()" formControlName="endShift">
+              <option value="Full day">Full day</option>
+              <option value="First half">First half</option>
+              <option value="Second half">Second half</option>
+            </select></div>
+          <br><br>
+          <div class="col-2" *ngIf="roleBoolean">
+            <label for="status">Status:</label>
+          </div>
+          <div class="col-10" *ngIf="roleBoolean">
+            <select class="form-control" id="status" [(ngModel)]="employeeLeave.status" formControlName="status">
+              <option value="PENDING" *ngIf="employeeLeave.status=='PENDING'">{{employeeLeave.status}}</option>
+              <option value="APPROVED">APPROVED</option>
+              <option value="NOT_APPROVED">NOT_APPROVED</option>
+            </select></div>
+          <br><br>
+          <div class="col-2" *ngIf="roleBoolean">
+            <label for="notes">Notes:</label>
+          </div>
+          <div class="col-10" *ngIf="roleBoolean">
+            <textarea class="form-control" id="notes" rows="3" [(ngModel)]="employeeLeave.notes"
+                      formControlName="notes"></textarea>
+          </div>
+          <div class="text-center " *ngIf="!editCondition">
+            <button type="submit" class="btn btn-primary m-3" [disabled]="leaveForm.invalid">Add Leave</button>
+            <button type="button" class="btn btn-danger" (click)="backToLeave()">Back</button>
+          </div>
+          <div class="text-center" *ngIf="editCondition">
+            <button type="submit" class="btn btn-primary m-3" [disabled]="leaveForm.invalid">Update Leave</button>
+            <button type="button" class="btn btn-danger" (click)="backToLeave()">Back</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
